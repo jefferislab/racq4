@@ -9,7 +9,7 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Depends:rhdf5,
+Depends: rhdf5,
   reticulate,
   varitas,
   bit64,
@@ -18,3 +18,5 @@ Depends:rhdf5,
   ggplot2,
   mmand,
   gsignal
+URL: https://github.com/jefferislab/racq4
+BugReports: https://github.com/jefferislab/racq4/issues
