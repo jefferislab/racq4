@@ -101,7 +101,8 @@ h52ts <- function(files, name='data', bit64conversion='double', channel=2, ...) 
 #' @importFrom stats is.ts
 downsample_ts <- function(x, n, ...) {
   stopifnot(is.ts(x))
-  ts(downsample(as.vector(x), n=n, ...), deltat = deltat(x)*n, start = 0)
+  dx=if(is.mts(x)) as.matrix(x) else as.vector(x)
+  ts(downsample(dx, n=n, ...), deltat = deltat(x)*n, start = 0)
 }
 
 
