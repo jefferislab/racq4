@@ -4,9 +4,9 @@
 \name{racq4-package}
 \alias{racq4}
 \alias{racq4-package}
-\title{racq4: What the Package Does (Title Case)}
+\title{racq4: Analysis of acq4 electrophysiology data}
 \description{
-More about what it does (maybe more than one line) Use four spaces when indenting paragraphs within the Description.
+Functions to analyse acq4 electrophysiology data in its native HDF5 format including, reading (with attributes), downsampling, smoothing, spike finding and plotting.
 }
 \seealso{
 Useful links:
@@ -14,6 +14,15 @@ Useful links:
   \item \url{https://github.com/jefferislab/racq4}
   \item \url{https://jefferislab.github.io/racq4/}
   \item Report bugs at \url{https://github.com/jefferislab/racq4/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Shahar Frechter \email{frechter@mrc-lmb.cam.ac.uk} (\href{https://orcid.org/0000-0002-0431-5849}{ORCID})
+
+Authors:
+\itemize{
+  \item Gregory Jefferis \email{jefferis@gmail.com} (\href{https://orcid.org/0000-0002-0587-9355}{ORCID})
 }
 
 }

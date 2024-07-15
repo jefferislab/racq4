@@ -1,11 +1,15 @@
 Package: racq4
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Analysis of acq4 electrophysiology data
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Authors@R: c(
+    person("Shahar","Frechter", email="frechter@mrc-lmb.cam.ac.uk", 
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-0431-5849")),
+    person("Gregory","Jefferis", email="jefferis@gmail.com", 
+    role = c("aut"), comment = c(ORCID = "0000-0002-0587-9355")))
+Description: Functions to analyse acq4 electrophysiology data in its native HDF5
+    format including, reading (with attributes), downsampling, smoothing, spike
+    finding and plotting.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
