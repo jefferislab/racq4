@@ -54,54 +54,6 @@ spike_times_folder <- function(base_folder,experiment_type,file_extension, thres
 }
 
 
-
-#spike_times_folder <- function(base_folder, threshold) {
-# spike_times <- list()
-# # Get a list of all files in the specified folder
-# files <- list.dirs(file.path(base_folder))
-# files=files[-1]
-
-# # myfiles=files[grep(paste0(experiment_type, "_\\d{3}/"),list.dirs(file.path(base_folder)))]
-# for (file in 2:files) {
-#   # Read in the data
-#   h5_file <- h5read(paste(file[1]), name="data")
-#
-#   # Use the second derivative of your data to detect spikes
-#   sg<- sgolayfilt(gaussianSmooth(h5_file[-(1:300),2]+0.55, 50), m = 2)
-#
-#   # Find all the local maxima in your data above the threshold
-#   peaks <- findpeaks(data=gaussianSmooth(sg, 50), MinPeakHeight = threshold, MinPeakDistance = 150, DoubleSided = TRUE)$loc
-#
-#   # Store the spike times for this file in the list
-#   spike_times[[file]][[sub("^.*?(\\d{4}\\.\\d{2}\\.\\d{2}_\\d+)(.+?)", "\\1\\2\\", file)]] <- peaks
-# }
-# return(spike_times)
-
-
-
-plot_cell.old <- function(base_folder) {
-  # Get a list of all files in the folder with the specified extension
-  files <- list.dirs(file.path(base_folder))
-  files <- sort(files)
-  file_list <- files[-1]
-
-  for (file in file_list) {
-    if (file.exists (paste(file,"/Clamp2.ma",sep=""))){
-    phys_data <- paste(file, "/Clamp2.ma", sep = "")
-    h5_file <- h5read(phys_data, name = "data")  # Read in the data
-    pdf(paste(substr(file, 1, nchar(file)),".pdf", sep=""), width = 4, height = 4)
-    plot(downsample(h5_file[,2],50),type="l")
-
-    rug((stf_06_27$h5_file)/50)
-    dev.off()}
-    else
-    {next}
-    }
-}
-
-
-
-
 h52ts <- function(files, name='data', bit64conversion='double', channel=2, ...) {
   tracelist=lapply(files, function(x) h5read(x, name=name, bit64conversion=bit64conversion, ...)[,channel])
   times=h5read(files[1], name='info/1/values', bit64conversion=bit64conversion)
