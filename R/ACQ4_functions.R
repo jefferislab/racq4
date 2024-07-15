@@ -82,7 +82,7 @@ spike_times_folder <- function(base_folder,experiment_type,file_extension, thres
 #' @param ...
 #'
 #' @return A \code{ts} or \code{mts} object
-#' @importFrom stats deltat is.ts ts
+#' @importFrom stats deltat ts
 #' @export
 #'
 #' @examples
@@ -98,7 +98,7 @@ acq4h52ts <- function(files, name='data', bit64conversion='double', channel=2, .
     ts(tracelist[[1]], deltat = deltat, start=0)
 }
 
-#' @importFrom stats is.ts
+#' @importFrom stats is.ts is.mts
 downsample_ts <- function(x, n, ...) {
   stopifnot(is.ts(x))
   dx=if(is.mts(x)) as.matrix(x) else as.vector(x)
