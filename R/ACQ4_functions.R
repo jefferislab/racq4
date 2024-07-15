@@ -86,7 +86,7 @@ spike_times_folder <- function(base_folder,experiment_type,file_extension, thres
 #' @export
 #'
 #' @examples
-h52ts <- function(files, name='data', bit64conversion='double', channel=2, ...) {
+acq4h52ts <- function(files, name='data', bit64conversion='double', channel=2, ...) {
   tracelist=lapply(files, function(x) h5read(x, name=name, bit64conversion=bit64conversion, ...)[,channel])
   times=h5read(files[1], name='info/1/values', bit64conversion=bit64conversion)
   deltat=diff(times)[1]
@@ -160,7 +160,7 @@ plot_cell <- function(path, stf_list) {
         op=options(warn = 2)
 
         # ma_data <- try(h5read(stf_key, name = "data"))
-        ma_data <- try(h52ts(stf_key, name = "data"))
+        ma_data <- try(acq4h52ts(stf_key, name = "data"))
         if(inherits(ma_data, 'try-error')){
           message("There was a problem reading file: ", base_stf_key)
           next
