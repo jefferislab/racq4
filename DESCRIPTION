@@ -16,7 +16,6 @@ LazyData: true
 Depends: rhdf5,
   reticulate,
   varitas,
-  bit64,
   stringr,
   dplyr,
   ggplot2,
