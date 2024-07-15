@@ -54,6 +54,7 @@ spike_times_folder <- function(base_folder,experiment_type,file_extension, thres
 }
 
 
+#' @importFrom stats deltat is.ts ts
 h52ts <- function(files, name='data', bit64conversion='double', channel=2, ...) {
   tracelist=lapply(files, function(x) h5read(x, name=name, bit64conversion=bit64conversion, ...)[,channel])
   times=h5read(files[1], name='info/1/values', bit64conversion=bit64conversion)
@@ -66,12 +67,16 @@ h52ts <- function(files, name='data', bit64conversion='double', channel=2, ...) 
     ts(tracelist[[1]], deltat = deltat, start=0)
 }
 
+#' @importFrom stats is.ts
 downsample_ts <- function(x, n, ...) {
   stopifnot(is.ts(x))
   ts(downsample(as.vector(x), n=n, ...), deltat = deltat(x)*n, start = 0)
 }
 
 
+#' @importFrom grDevices dev.off pdf
+#' @importFrom graphics rug
+#'
 plot_cell <- function(path, stf_list) {
   # Check if stf_list is a character string and convert it to a list if necessary
   if (is.character(stf_list)) {
