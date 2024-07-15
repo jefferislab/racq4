@@ -1,7 +1,16 @@
-
-
-# Read and analyse spikes in a single ACQ4 experiment
-
+#' Read and analyse spikes in a single ACQ4 experiment
+#'
+#' @param base_folder
+#' @param query_folder
+#' @param file_extension
+#' @param threshold
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' }
 spikes <- function(base_folder, query_folder, file_extension, threshold) {
   # Get a list of all files in the specified folder
   files <- list.dirs(file.path(base_folder, query_folder))
@@ -29,9 +38,19 @@ spikes <- function(base_folder, query_folder, file_extension, threshold) {
   return(spike_times)
 }
 
-# Read and analyse spikes in a all experiments of a single type for a single cell
-
-
+#' Read and analyse spikes in all experiments of a single type for a single cell
+#'
+#' @param base_folder
+#' @param experiment_type
+#' @param file_extension
+#' @param threshold
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' }
 spike_times_folder <- function(base_folder,experiment_type,file_extension, threshold) {
   spike_times <- list()
   # Get a list of all files in the specified folder
@@ -54,7 +73,19 @@ spike_times_folder <- function(base_folder,experiment_type,file_extension, thres
 }
 
 
+#' Read data from an ACQ4 HDF5 file and turn it into an R time series
+#'
+#' @param files
+#' @param name
+#' @param bit64conversion
+#' @param channel
+#' @param ...
+#'
+#' @return A \code{ts} or \code{mts} object
 #' @importFrom stats deltat is.ts ts
+#' @export
+#'
+#' @examples
 h52ts <- function(files, name='data', bit64conversion='double', channel=2, ...) {
   tracelist=lapply(files, function(x) h5read(x, name=name, bit64conversion=bit64conversion, ...)[,channel])
   times=h5read(files[1], name='info/1/values', bit64conversion=bit64conversion)
@@ -74,9 +105,17 @@ downsample_ts <- function(x, n, ...) {
 }
 
 
+#' Generate plots for all the results from a single cell
+#'
+#' @param path
+#' @param stf_list
+#' @return
+#'
+#' @export
 #' @importFrom grDevices dev.off pdf
 #' @importFrom graphics rug
 #'
+#' @examples
 plot_cell <- function(path, stf_list) {
   # Check if stf_list is a character string and convert it to a list if necessary
   if (is.character(stf_list)) {
