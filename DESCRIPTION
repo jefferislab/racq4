@@ -20,3 +20,4 @@ Depends: rhdf5,
   gsignal
 URL: https://github.com/jefferislab/racq4
 BugReports: https://github.com/jefferislab/racq4/issues
+RoxygenNote: 7.3.2
