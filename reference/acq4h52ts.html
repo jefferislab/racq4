@@ -45,8 +45,27 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd></dd>
+<dl><dt id="arg-files">files<a class="anchor" aria-label="anchor" href="#arg-files"></a></dt>
+<dd><p>Input acq4 HDF5 files (often end in <code>.ma</code> or <code>.h5</code>)</p></dd>
+
+
+<dt id="arg-name">name<a class="anchor" aria-label="anchor" href="#arg-name"></a></dt>
+<dd><p>the name of the HDF5 folder containing the data to read</p></dd>
+
+
+<dt id="arg-bit-conversion">bit64conversion<a class="anchor" aria-label="anchor" href="#arg-bit-conversion"></a></dt>
+<dd><p>What to do with 64 bit integers (this normally comes
+up with unsigned 32 bit integers for which R has no native support but can
+be encoded without any loss of precision in R's <code>numeric</code> (8 byte double)
+type). See <code>h5read()</code> for details.</p></dd>
+
+
+<dt id="arg-channel">channel<a class="anchor" aria-label="anchor" href="#arg-channel"></a></dt>
+<dd><p>Which data channel to import</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Additional arguments passed to <code>h5read()</code></p></dd>
 
 </dl></div>
     <div class="section level2">

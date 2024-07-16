@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.1.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-07-15T18:36Z
+last_built: 2024-07-16T09:47Z
 urls:
   reference: https://jefferislab.github.io/racq4/reference
   article: https://jefferislab.github.io/racq4/articles
