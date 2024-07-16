@@ -1,11 +1,15 @@
 #' Downsample a signal by an integer factor
 #'
+#' @details This provides a simple wrapper around the [gsignal::downsample()]
+#' function with support for the time series functionality found in the base R
+#' [stats::ts()] functions and friends.
+#'
 #' @inheritParams gsignal::downsample
 #' @return
 #' @export
 #' @importFrom stats is.ts is.mts deltat start
 #' @importFrom gsignal downsample
-#'
+#' @seealso [stats::ts()], [gsignal::downsample()]
 #' @examples
 #' x=1:10
 #' x
