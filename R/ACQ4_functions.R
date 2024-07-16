@@ -75,11 +75,14 @@ spike_times_folder <- function(base_folder,experiment_type,file_extension, thres
 
 #' Read data from an ACQ4 HDF5 file and turn it into an R time series
 #'
-#' @param files
-#' @param name
-#' @param bit64conversion
-#' @param channel
-#' @param ...
+#' @param files Input acq4 HDF5 files (often end in `.ma` or `.h5`)
+#' @param name the name of the HDF5 folder containing the data to read
+#' @param bit64conversion What to do with 64 bit integers (this normally comes
+#'   up with unsigned 32 bit integers for which R has no native support but can
+#'   be encoded without any loss of precision in R's `numeric` (8 byte double)
+#'   type). See [h5read()] for details.
+#' @param channel Which data channel to import
+#' @param ... Additional arguments passed to [h5read()]
 #'
 #' @return A `ts` or `mts` object
 #' @importFrom stats deltat ts

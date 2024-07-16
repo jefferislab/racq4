@@ -7,7 +7,18 @@
 acq4h52ts(files, name = "data", bit64conversion = "double", channel = 2, ...)
 }
 \arguments{
-\item{...}{}
+\item{files}{Input acq4 HDF5 files (often end in \code{.ma} or \code{.h5})}
+
+\item{name}{the name of the HDF5 folder containing the data to read}
+
+\item{bit64conversion}{What to do with 64 bit integers (this normally comes
+up with unsigned 32 bit integers for which R has no native support but can
+be encoded without any loss of precision in R's \code{numeric} (8 byte double)
+type). See \code{\link[=h5read]{h5read()}} for details.}
+
+\item{channel}{Which data channel to import}
+
+\item{...}{Additional arguments passed to \code{\link[=h5read]{h5read()}}}
 }
 \value{
 A \code{ts} or \code{mts} object
