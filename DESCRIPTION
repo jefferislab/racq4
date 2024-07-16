@@ -13,14 +13,10 @@ Description: Functions to analyse acq4 electrophysiology data in its native HDF5
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
-Depends: rhdf5,
-  reticulate,
-  varitas,
-  stringr,
-  dplyr,
-  ggplot2,
-  mmand,
-  gsignal
+Imports: 
+    gsignal,
+    rhdf5,
+    mmand
 URL: https://github.com/jefferislab/racq4, https://jefferislab.github.io/racq4/
 BugReports: https://github.com/jefferislab/racq4/issues
 RoxygenNote: 7.3.2

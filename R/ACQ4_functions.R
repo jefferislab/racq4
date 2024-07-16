@@ -7,6 +7,8 @@
 #'
 #' @return
 #' @export
+#' @importFrom mmand gaussianSmooth
+#' @importFrom gsignal sgolayfilt gsignal findpeaks
 #'
 #' @examples
 #' \dontrun{
@@ -86,6 +88,7 @@ spike_times_folder <- function(base_folder,experiment_type,file_extension, thres
 #'
 #' @return A `ts` or `mts` object
 #' @importFrom stats deltat ts
+#' @importFrom rhdf5 h5read
 #' @export
 #'
 #' @examples
@@ -101,11 +104,22 @@ acq4h52ts <- function(files, name='data', bit64conversion='double', channel=2, .
     ts(tracelist[[1]], deltat = deltat, start=0)
 }
 
-#' @importFrom stats is.ts is.mts
-downsample_ts <- function(x, n, ...) {
+#' Downsample a signal by an integer factor
+#'
+#' @inheritParams gsignal::downsample
+#' @return
+#' @export
+#' @importFrom stats is.ts is.mts deltat start
+#' @importFrom gsignal downsample
+#'
+#' @examples
+#' xts=stats::ts(1:10, start=0, deltat=0.1)
+#' xts
+#' downsample_ts(xts, 2)
+downsample_ts <- function(x, n, phase = 0) {
   stopifnot(is.ts(x))
   dx=if(is.mts(x)) as.matrix(x) else as.vector(x)
-  ts(downsample(dx, n=n, ...), deltat = deltat(x)*n, start = 0)
+  ts(downsample(dx, n=n, phase = phase), deltat = deltat(x)*n, start = start(x))
 }
 
 
