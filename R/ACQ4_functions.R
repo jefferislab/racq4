@@ -81,7 +81,7 @@ spike_times_folder <- function(base_folder,experiment_type,file_extension, thres
 #' @param channel
 #' @param ...
 #'
-#' @return A \code{ts} or \code{mts} object
+#' @return A `ts` or `mts` object
 #' @importFrom stats deltat ts
 #' @export
 #'

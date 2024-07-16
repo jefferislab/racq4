@@ -24,3 +24,4 @@ Depends: rhdf5,
 URL: https://github.com/jefferislab/racq4, https://jefferislab.github.io/racq4/
 BugReports: https://github.com/jefferislab/racq4/issues
 RoxygenNote: 7.3.2
+Roxygen: list(markdown = TRUE)
