@@ -1,8 +1,12 @@
 #' Downsample a signal by an integer factor
 #'
 #' @details This provides a simple wrapper around the [gsignal::downsample()]
-#' function with support for the time series functionality found in the base R
-#' [stats::ts()] functions and friends.
+#'   function with support for the time series functionality found in the base R
+#'   [stats::ts()] functions and friends.
+#'
+#' @param x input data, specified as a numeric vector or matrix or R
+#'   (multivariate) time series. In case of a vector it represents a single
+#'   signal; in case of a matrix each column is a signal.
 #'
 #' @inheritParams gsignal::downsample
 #' @return

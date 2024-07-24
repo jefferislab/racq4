@@ -13,9 +13,9 @@ downsample(x, n, phase = 0)
 \method{downsample}{ts}(x, n, phase = 0)
 }
 \arguments{
-\item{x}{input data, specified as a numeric vector or matrix. In case of a
-vector it represents a single signal; in case of a matrix each column is a
-signal.}
+\item{x}{input data, specified as a numeric vector or matrix or R
+(multivariate) time series. In case of a vector it represents a single
+signal; in case of a matrix each column is a signal.}
 
 \item{n}{downsampling factor, specified as a positive integer.}
 
